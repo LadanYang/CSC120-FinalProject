@@ -8,6 +8,7 @@ public class Artifact{
     }
     public void getDescription(){
         System.out.println(this.description);
+        System.out.print("Hello");
     }
 
 }
