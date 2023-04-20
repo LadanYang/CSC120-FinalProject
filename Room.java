@@ -1,18 +1,18 @@
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 public class Room {
-    ArrayList<Artifact> items;
+    Hashtable <String, ArrayList<Artifact>> items;
     public String name;
 
-    public Room(String name, ArrayList items){
+    public Room(String name, Hashtable<String, ArrayList<Artifact>>items){
         this.name=name;
-        this.items=items;
+        this.items = items;
+        
 
     }
     public void printItem(){
-        for(int i=0;i<this.items.size();i++){
-            System.out.print(this.items.get(i).name+", ");
-        }System.out.println("");
+        System.out.println(this.name+" contains: "+this.items.keySet());
 
     }
 
