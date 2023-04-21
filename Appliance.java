@@ -1,17 +1,20 @@
-import java.util.ArrayList;
+
+import java.util.Hashtable;
 
 public class Appliance {
     String name;
-    ArrayList<Artifact> items;
-    public Appliance(String name, ArrayList<Artifact> items){
+    Hashtable<String, Artifact> items;
+    public Appliance(String name){
         this.name=name;
-        this.items = items;
+        this.items = new Hashtable<String, Artifact>();
 
     }
-
-    public void examine(){
-        for(int i=0;i<items.size();i++){
-            System.out.println(items.get(i));
-        }
+    public void put(String item, Artifact artifact){
+        this.items.put(item, artifact);
     }
+    // public void examine(){
+    //     for(int i=0;i<items.size();i++){
+    //         System.out.println(items.get(i));
+    //     }
+    // }
 }
