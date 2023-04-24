@@ -154,11 +154,93 @@ public class Game {
         deanAppliance.put("luggage", Luggage);
         Room deanOffice = new Room("Dean's Office",deanAppliance);
 
+
+        Hashtable<String, Appliance> cleanerAppliance = new Hashtable<String, Appliance>();
+        Appliance closet = new Appliance("Closet");
+        Appliance table1 = new Appliance("Table");
+        Appliance box = new Appliance("Storage Box");
+        Appliance drawer1 = new Appliance("Drawer");
+        
+        cleanerAppliance.put("Closet", closet);
+        cleanerAppliance.put("Table", table1);
+        cleanerAppliance.put("Storage Box", box);
+        cleanerAppliance.put("Drawer", drawer1);
+
+        Artifact poster=new Artifact("Posters of a film", "Protagonist is a patient");
+        Artifact photos=new Artifact("Photos", "Photos of the cleaner");
+        Artifact deliveryForms=new Artifact("Delivery Forms", "Seems to be to steal and sell things from the hospital");
+        Artifact lvBag=new Artifact("Louis Vuitton Bag", "An expensive handbag");
+        Artifact creditCards=new Artifact("Credit Cards", "An assortment of credit cards");
+        Artifact facialmask=new Artifact("Facial mask", "A nurses surgical mask");
+        Artifact prosthetics=new Artifact("Prosthetic", "A prosthetic hand");
+       
+        closet.put("Poster",poster);
+        table1.put("Photos",photos);
+        drawer1.put("Delivery Forms", deliveryForms);
+        drawer1.put("Louis Vuitton Bag", lvBag);
+        drawer1.put("Credit cards", creditCards);
+        box.put("Facial mask", facialmask);
+        box.put("Prosthetics", prosthetics);
+
+        Room cleanersDorm = new Room("Cleaner's Dorm",cleanerAppliance);
+
+
+       
+        //No appliances in the waiting room?
+        Room waitingRoom = new Room("Waiting Room");
+
+
+        Hashtable<String, Appliance> astdeanAppliance = new Hashtable<String, Appliance>();
+
+        Appliance astdeansDrawer= new Appliance("Drawer");
+        Appliance astdeansTable= new Appliance("Table");
+        Appliance astdeansShelf = new Appliance("Shelf");
+        Appliance astdeansLaptop= new Appliance("Laptop");
+        astdeanAppliance.put("Drawer", astdeansDrawer);
+        astdeanAppliance.put("Table",  astdeansTable);
+        astdeanAppliance.put("Shelf",  astdeansShelf);
+        astdeanAppliance.put("Laptop",  astdeansShelf);
+        Artifact diary1=new Artifact("diary", "(living in the shadow of dean; hate dean; a bottle of medical anesthetic");
+        Artifact anasthetic=new Artifact("anasthetic", "");
+        Artifact tissueBox=new Artifact("tissue box", "key to drawer inside");
+        Artifact paperCrane=new Artifact("Paper crane", "The assistant dean must like the nurse");
+        Artifact email1=new Artifact("email", "email with investor(assistant dean wants to replace dean; unsatisfied about the share allocation; request rejected)");
+        astdeansDrawer.put("Diary", diary1);
+        astdeansDrawer.put("Anasthetic", anasthetic);
+        astdeansTable.put("Tissue box",tissueBox);
+        astdeansShelf.put("Paper Crane", paperCrane);
+        astdeansLaptop.put("Email", email);
+        Room astDeansOffice = new Room("Assistant Dean's Office",astdeanAppliance);
+
+
+        
+        Hashtable<String, Appliance> cleaningAppliance = new Hashtable<String,Appliance>();
+        Appliance cleaningShelf= new Appliance("Shelf");
+        Appliance cleaningTrash= new Appliance("Trash bin");
+        Appliance cleaningTrolley= new Appliance("Trolley");
+
+        Artifact gauze=new Artifact("gauze", " ");
+        Artifact anasthetic1=new Artifact("anasthetic", " ");
+        Artifact lighter=new Artifact("lighter", " ");
+
+        cleaningShelf.put("Medical gauze", gauze);
+        cleaningShelf.put("Medical anasthetic", anasthetic1);
+        cleaningTrolley.put("Lighter", lighter);
+        cleaningAppliance.put("Shelf", cleaningShelf);
+        cleaningAppliance.put("Trolley",  cleaningTrolley);
+        cleaningAppliance.put("Trash bin",  cleaningTrash);
+        Room cleaningRoom = new Room("Cleaning Room",cleaningAppliance);
+
+
         this.allRooms=new Hashtable<String,Room>();
         this.allRooms.put("Nurse Station",nurseStation);
         this.allRooms.put("Investor's Office",InvestorOffice);
         this.allRooms.put("Patient's Ward",patientWard);
         this.allRooms.put("Dean's Office",deanOffice);
+        this.allRooms.put("Cleaner's Dorm",cleanersDorm);
+        this.allRooms.put("Waiting Room",waitingRoom);
+        this.allRooms.put("Assistant Dean's Office",astDeansOffice);
+        this.allRooms.put("Cleaning Room",cleaningRoom);
 
         
     }
