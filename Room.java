@@ -7,6 +7,10 @@ public class Room {
     public Room(String name, Hashtable<String, Appliance> appliances){
         this.name=name;
         this.appliances=appliances;
+    }
+
+    public Room(String name){
+        this.name=name;
 
     }
 
