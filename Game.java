@@ -203,8 +203,7 @@ public class Game {
         detective.goTo(trial.allRooms.get("patient's ward"));
         while (true) {
             System.out.println("");
-            System.out.println(
-                    detective.name + ", what do you want to do next? Call 'show options' to see the availble actions");
+            System.out.println(detective.name + ", what do you want to do next? Call 'show options' to see the availble actions");
             String response = input.nextLine().toLowerCase();
             String[] res_words = response.split(" ");
             List list_words = Arrays.asList(res_words);
@@ -220,28 +219,28 @@ public class Game {
                 break;
             } else if (list_words.contains("go")) {
                 String loc = res_words[num_words - 2] + " " + res_words[num_words - 1];
-                System.out.println(loc);
+                // System.out.println(loc);
                 detective.goTo(trial.allRooms.get(loc));
 
             } else if (list_words.contains("walk")) {
 
                 detective.walkTo(detective.location.appliances.get(res_words[num_words - 1]));
-                ;
+                
 
             } else if (list_words.contains("examine")) {
 
                 detective.examine(detective.applianceloc.items.get(res_words[num_words - 1]));
-                ;
+                
 
             } else if (list_words.contains("grab")) {
 
                 detective.grab(detective.applianceloc.items.get(res_words[num_words - 1]));
-                ;
+                
 
             } else if (list_words.contains("drop")) {
 
                 detective.drop(detective.applianceloc.items.get(res_words[num_words - 1]));
-                ;
+                
 
             } else if (list_words.contains("declare")) {
 

@@ -18,7 +18,6 @@ public class Detective {
         this.location=room;
         System.out.println("You are in "+room.name+" now");
         this.location.printProfile();
-        //if (room.)
         
     }
     public void lookAround(){
@@ -63,8 +62,8 @@ public class Detective {
         System.out.println(" + examine(item)");
         System.out.println(" + grab(item)");
         System.out.println(" + drop(item)");
-        System.out.println("+ declare(suspect).");
-
+        System.out.println("+ declare(suspect)");
+        System.out.println("+ showReport()");
       }
 
       public void declare(){
@@ -82,6 +81,15 @@ public class Detective {
         }
         else{
             System.out.println("Not sufficient evidence. Cannot declare. Please examine at least 10 items.");
+        }
+      }
+
+      public void showReport(){
+        if(steps==10){
+            System.out.println("Here's a autopsy report: age between 25-35, blood type-O, breath in lots of anesthetic");
+        }
+        else{
+            System.out.println("No reported received yet. Please examine at least 10 items.");
         }
       }
     
