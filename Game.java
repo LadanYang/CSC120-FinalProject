@@ -284,8 +284,6 @@ public class Game {
         }
 
         input.close();
-        detective.lookAround();
-        
 
     }
 }
