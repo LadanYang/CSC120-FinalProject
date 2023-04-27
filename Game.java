@@ -83,7 +83,7 @@ public class Game {
         Artifact report = new Artifact("surgery report","patient's surgery report");
         Artifact liquor = new Artifact("half bottle of liquor","");
         Artifact profile = new Artifact("staff profile", "");
-        Artifact weddingRing = new Artifact("wedding ring", null);
+        Artifact weddingRing = new Artifact("wedding ring", "null");
         Artifact Corpse = new Artifact("dean's corpse", "there are burnt wallet, burnt dean's id card, and burnt medical gauze on the corpse");
         Artifact letter = new Artifact("letter", "a detective agency asks dean to pay the money for investigating all his staff.");
         Artifact pen = new Artifact("recording pen", "I'm back. Let's meet at 20:00 in my office");
@@ -194,8 +194,9 @@ public class Game {
     public static void main(String[] args) {
         Game trial = new Game();
         Scanner input = new Scanner(System.in);
-        System.out.println(
-                "Welcome to the Sharlock Homles! In this game, you are a detective in a crime scene. You need to explore the space to find clues and figure out what happened. Now, what name do you want to use?");
+        System.out.println("Welcome to the Sharlock Homles! In this game, you are a detective in a crime scene. You need to explore the space to find clues and figure out what happened.");
+        System.out.println("On 2016.5.20, the cosmetic surgery hospital was on fire. The dead body of the dean was found by a cleaner in the dean's office whose upper body is charred. ");
+        System.out.println("Now, what name do you want to use?");
         String nameD = input.nextLine();
         Detective detective = new Detective(nameD);
         detective.walkTo(trial.allRooms.get("patient's ward"));
@@ -222,7 +223,8 @@ public class Game {
                     detective.walkTo(trial.allRooms.get(loc));
                 }
                 catch(Exception e){
-                    System.out.println("cannot use walk to! see available options in show options()!");
+        
+                    System.out.println("cannot use walk to! see available options in show options()");
                 }
 
             } else if (list_words.contains("go")) {
@@ -231,7 +233,7 @@ public class Game {
                     detective.goTo(detective.location.appliances.get(res_words[num_words - 1]));
                 }
                 catch(Exception e){
-                    System.out.println("cannot go to! use other options in show options()");
+                    System.out.println("cannot use go to! see available options in show options()");
                 }
                 
 
@@ -265,7 +267,7 @@ public class Game {
             else if(list_words.contains("check")){
                 detective.checkBag();
             }
-                
+            
 
              else if (list_words.contains("declare")) {
 

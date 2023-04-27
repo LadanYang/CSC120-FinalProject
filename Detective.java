@@ -60,6 +60,7 @@ public class Detective {
             System.out.println(backpack.get(i).name);
         }
     }
+
     
     public void showOptions() {
         System.out.println("Available options:");
