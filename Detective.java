@@ -14,7 +14,7 @@ public class Detective {
         this.applianceloc = null;
     
     }
-    public void goTo(Room room){
+    public void walkTo(Room room){
         this.location=room;
         System.out.println("You are in "+room.name+" now");
         this.location.printProfile();
@@ -25,6 +25,9 @@ public class Detective {
         this.location.printItem();
     }
     public void grab(Artifact item){
+        if (this.backpack.contains(item)){
+            throw new RuntimeException("it's already in your bag!");
+        }
         this.backpack.add(item);
         System.out.println("You just grabed "+item.name);
     }
@@ -33,7 +36,7 @@ public class Detective {
             this.backpack.remove(item);
         System.out.println("You just dropped "+item.name);
         }else{
-            throw new RuntimeException(item+" is not in your backpack!");
+            throw new RuntimeException(item.name+" is not in your backpack!");
         }
     }
     public void examine(Artifact item){
@@ -41,27 +44,33 @@ public class Detective {
         item.getDescription();
         steps++;
     }
-
-    public void walkTo(Appliance appliance){
+    public void goTo(Appliance appliance){
         System.out.print("You are at "+appliance.name+". There are");
-        
+        this.applianceloc = appliance;
         if (applianceloc==null){
             System.out.println("please use walk to(item) method.");
         }
-        this.applianceloc = appliance;
+        
         appliance.printItem();
         
 
     }
+    public void checkBag(){
+        for (int i=0; i<backpack.size();i++){
+            System.out.println(backpack.get(i).name);
+        }
+    }
+    
     public void showOptions() {
         System.out.println("Available options:");
         System.out.println("+ show rooms");
-        System.out.println(" + go to(room)");
-        System.out.println(" + walk to(appliance)");
+        System.out.println(" + walk to(room)");
+        System.out.println(" + go to(appliance)");
         System.out.println(" + look around");
         System.out.println(" + examine(item)");
         System.out.println(" + grab(item)");
         System.out.println(" + drop(item)");
+        System.out.println("+ check bag()");
         System.out.println("+ declare(suspect)");
         System.out.println("+ showReport()");
       }
