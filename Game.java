@@ -1,8 +1,14 @@
 
-//import java.util.ArrayList;
+/**
+ * The Game class builds the environment, has one method, and has the main method where gameplay occurs
+ * @author Clara Yang, Quinn He, Yaya Callahan
+ * @version 04/28/23
+ **/
+
 import java.util.Scanner;
 import java.util.Hashtable;
 import java.util.*;
+import java.lang.*;
 
 public class Game {
     Hashtable<String, Room> allRooms;
@@ -17,7 +23,7 @@ public class Game {
             
         Hashtable<String, Appliance> nurseAppliance = new Hashtable<String, Appliance>();
         Artifact diary=new Artifact("diary", "poor wage, not enough to buy food and clothes");
-        Artifact ring=new Artifact("wedding ring", "null");
+        Artifact ring=new Artifact("ring", "a diamond wedding ring");
         Appliance Table1 = new Appliance("table");
         Table1.put("diary",diary);
         Table1.put("ring", ring);
@@ -115,7 +121,7 @@ public class Game {
         cleanerAppliance.put("table", table1);
         cleanerAppliance.put("box", box);
         cleanerAppliance.put("drawer", drawer1);
-        Artifact poster=new Artifact("posters of a film", "Protagonist is a patient");
+        Artifact poster=new Artifact("posters", "Posters of a film. Protagonist is a patient");
         Artifact photos=new Artifact("photos", "Photos of the cleaner");
         Artifact deliveryForms=new Artifact("delivery forms", "Seems to be to steal and sell things from the hospital");
         Artifact lvBag=new Artifact("louis vuitton Bag", "An expensive handbag");
@@ -142,14 +148,14 @@ public class Game {
         astdeanAppliance.put("shelf",  astdeansShelf);
         astdeanAppliance.put("laptop",  astdeansShelf);
         Artifact diary1=new Artifact("diary", "(living in the shadow of dean; hate dean; a bottle of medical anesthetic");
-        Artifact anasthetic=new Artifact("anasthetic", "");
-        Artifact tissueBox=new Artifact("tissue box", "key to drawer inside");
-        Artifact paperCrane=new Artifact("Paper crane", "The assistant dean must like the nurse");
+        Artifact anasthetic=new Artifact("anasthetic", "medical anasthetic");
+        Artifact tissueBox=new Artifact("tissues", "tissue box with key to drawer inside");
+        Artifact paperCrane=new Artifact("crane", "Paper crane. The assistant dean must like the nurse");
         Artifact email1=new Artifact("email", "email with investor(assistant dean wants to replace dean; unsatisfied about the share allocation; request rejected)");
         astdeansDrawer.put("diary", diary1);
         astdeansDrawer.put("anasthetic", anasthetic);
-        astdeansTable.put("tissue box",tissueBox);
-        astdeansShelf.put("paper crane", paperCrane);
+        astdeansTable.put("tissues",tissueBox);
+        astdeansShelf.put("crane", paperCrane);
         astdeansLaptop.put("email", email1);
         Room astDeansOffice = new Room("Assistant Dean's Office",astdeanAppliance, "Assistant dean: bloodType = O; 31 years old; male; 177cm, 74kg; salary= 10000; description: he, dean and investor are running the hospital; his brother, the dean, has disappeared a year ago because of a surgery failure that accidentally killed a model; 18:00, dean called him and said he has returned back, asked him to meet at 20:00.");
 
@@ -158,11 +164,11 @@ public class Game {
         Hashtable<String, Appliance> cleaningAppliance = new Hashtable<String,Appliance>();
         Appliance cleaningShelf= new Appliance("shelf");
         Appliance cleaningTrolley= new Appliance("trolley");
-        Artifact gauze=new Artifact("gauze", "null");
-        Artifact anasthetic1=new Artifact("anasthetic", "null");
+        Artifact gauze=new Artifact("gauze", "medical gauze");
+        Artifact anasthetic1=new Artifact("anasthetic", "medical anasthetic");
         Artifact lighter=new Artifact("lighter", "null");
-        cleaningShelf.put("medical gauze", gauze);
-        cleaningShelf.put("medical anasthetic", anasthetic1);
+        cleaningShelf.put("gauze", gauze);
+        cleaningShelf.put("anasthetic", anasthetic1);
         cleaningTrolley.put("lighter", lighter);
         cleaningAppliance.put("shelf", cleaningShelf);
         cleaningAppliance.put("trolley",  cleaningTrolley);
@@ -180,6 +186,11 @@ public class Game {
 
         
     }
+
+    
+    /** Getter to print all rooms 
+    */
+
 
     public void printRoom() {
         System.out.println("The rooms you can go to are:");
@@ -240,7 +251,8 @@ public class Game {
             } else if (list_words.contains("examine")) {
 
                 try{
-                    detective.examine(detective.applianceloc.items.get(res_words[num_words - 1]));
+                    detective.examine(detective.applianceloc.items.get(res_words[1]));
+                    //detective.examine(detective.applianceloc.items.get(res_words[num_words - 1]));
                 }
                 catch (Exception e){
                     System.out.println("cannot examine! use other options in show options()!");
@@ -250,10 +262,12 @@ public class Game {
             } else if (list_words.contains("grab")) {
                 try{
                 detective.grab(detective.applianceloc.items.get(res_words[num_words - 1]));
+                //detective.grab(detective.applianceloc.items.get(response.substring(response.lastIndexOf("grab")+1)));
                 }
                 catch(Exception e){
                     System.out.println(e);
                 }
+
                 
 
             } else if (list_words.contains("drop")) {
