@@ -1,5 +1,6 @@
 
 import java.util.Hashtable;
+import java.util.Set;
 /**
  * The Appliance class has 2 attributes and 2 methods
  * @author Clara Yang, Quinn He, Yaya Callahan
@@ -11,8 +12,7 @@ public class Appliance {
     String name;
     Hashtable<String, Artifact> items;
     public Appliance(String name){
-
-        
+     
     /** Name of this object*/
         this.name=name;
 
@@ -30,8 +30,8 @@ public class Appliance {
     }
 
     /** Getter for printing the items  */
-    public void printItem(){
-        System.out.println(items.keySet());
-
+    public Set<String> printItem(){
+        //System.out.println(items.keySet());
+        return items.keySet();
     }
 }

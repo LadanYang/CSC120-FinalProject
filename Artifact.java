@@ -21,8 +21,9 @@ public class Artifact{
     /** Getter for description of the item 
      * Prints out description
     */
-    public void getDescription(){
-       System.out.println (this.description);
+    public String getDescription(){
+       //System.out.println (this.description);
+       return this.description;
        
     }
 

@@ -4,6 +4,7 @@
  * @version 04/28/23
  **/
 import java.util.Hashtable;
+import java.util.Set;
 
 public class Room {
     Hashtable<String, Appliance> appliances;
@@ -24,14 +25,16 @@ public class Room {
     // }
 
     /** Prints out the associated investigative profile */
-    public void printProfile(){
-        System.out.println(this.profile);
+    public String printProfile(){
+        //System.out.println(this.profile);
+        return this.profile;
     }
 
     
     /** Prints out the appliances within that room */
-    public void printItem(){
-        System.out.println(appliances.keySet());
+    public Set<String> printAppliance(){
+        //System.out.println(appliances.keySet());
+        return appliances.keySet();
 
     }
     

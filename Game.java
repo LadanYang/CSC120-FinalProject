@@ -9,6 +9,7 @@ import java.util.Scanner;
 import java.util.Hashtable;
 import java.util.*;
 import java.lang.*;
+import java.util.Set;
 
 public class Game {
     Hashtable<String, Room> allRooms;
@@ -147,7 +148,7 @@ public class Game {
         astdeanAppliance.put("table",  astdeansTable);
         astdeanAppliance.put("shelf",  astdeansShelf);
         astdeanAppliance.put("laptop",  astdeansShelf);
-        Artifact diary1=new Artifact("diary", "(living in the shadow of dean; hate dean; a bottle of medical anesthetic");
+        Artifact diary1=new Artifact("diary", "living in the shadow of dean; hate dean; a bottle of medical anesthetic");
         Artifact anasthetic=new Artifact("anasthetic", "medical anasthetic");
         Artifact tissueBox=new Artifact("tissues", "tissue box with key to drawer inside");
         Artifact paperCrane=new Artifact("crane", "Paper crane. The assistant dean must like the nurse");
@@ -192,7 +193,7 @@ public class Game {
     */
 
 
-    public void printRoom() {
+    public String printRoom() {
         System.out.println("The rooms you can go to are:");
 
         // for(int i=0;i<this.allRooms.size();i++){
@@ -200,104 +201,177 @@ public class Game {
         // }
         System.out.println(allRooms.keySet());
         System.out.println("");
+        return "The rooms you can go to are:" + allRooms.keySet();
     }
 
     public static void main(String[] args) {
+        MyGUI GUI=new MyGUI();
         Game trial = new Game();
-        Scanner input = new Scanner(System.in);
-        System.out.println("Welcome to the Sharlock Homles! In this game, you are a detective in a crime scene. You need to explore the space to find clues and figure out what happened.");
-        System.out.println("On 2016.5.20, the cosmetic surgery hospital was on fire. The dead body of the dean was found by a cleaner in the dean's office whose upper body is charred. ");
-        System.out.println("Now, what name do you want to use?");
-        String nameD = input.nextLine();
-        Detective detective = new Detective(nameD);
+        // Scanner input = new Scanner(System.in);
+        // System.out.println("Welcome to the Sharlock Homles! In this game, you are a detective in a crime scene. You need to explore the space to find clues and figure out what happened.");
+        // System.out.println("On 2016.5.20, the cosmetic surgery hospital was on fire. The dead body of the dean was found by a cleaner in the dean's office whose upper body is charred. ");
+        // System.out.println("Now, what name do you want to use?");
+        // String nameD = input.nextLine();
+        Detective detective = new Detective("player");
         detective.walkTo(trial.allRooms.get("patient's ward"));
+        // String response = null;
+        // String[] res_words = null;
         while (true) {
-            System.out.println("");
-            System.out.println(detective.name + ", what do you want to do next? Call 'show options' to see the availble actions");
-            String response = input.nextLine().toLowerCase();
+            //System.out.println(detective.location.name);
+            // System.out.println("");
+            // System.out.println(detective.name + ", what do you want to do next? Call 'show options' to see the availble actions");
+            String response = GUI.getCommand().toLowerCase();
             String[] res_words = response.split(" ");
             List list_words = Arrays.asList(res_words);
             int num_words = list_words.size();
+            if(GUI.getCommandState()){
+                //System.out.print("HUISDHUIGFIG");
+                
+                // if (response.contains("show options")) {
+                //     GUI.changeText(detective.showOptions());
+                //     GUI.restoreCommandState();
+                // } else if (response.equals("show rooms")) {
+                //     GUI.changeText(trial.printRoom());
+                //     GUI.restoreCommandState();
+                // } else 
+                if (response.equals("look around")) {
+    
+                    try{
+                        GUI.changeText(detective.lookAround());
+                        GUI.restoreCommandState();
+                    }catch(Exception e){
+                        GUI.changeText("cannot look around! Make sure you're in a room first.");
+                        GUI.restoreCommandState();
+                    }
 
-            if (response.contains("show options")) {
-                detective.showOptions();
-            } else if (response.equals("show rooms")) {
-                trial.printRoom();
-            } else if (response.equals("look around")) {
-                detective.lookAround();
-            } else if (response.equals("quit")) {
-                break;
-            } else if (list_words.contains("walk")) {
-                String loc = res_words[num_words - 2] + " " + res_words[num_words - 1];
-                // System.out.println(loc);
-                try{
-                    detective.walkTo(trial.allRooms.get(loc));
+                    
+                } else if (response.equals("quit")) {
+                    break;
+                } else if (list_words.contains("walk")) {
+                    String loc = res_words[num_words - 2] + " " + res_words[num_words - 1];
+                    
+                    // System.out.println(loc);
+                    try{
+                        //detective.walkTo(trial.allRooms.get(loc));
+                        if(trial.allRooms.get(loc) instanceof Room){
+                            GUI.changeText(detective.walkTo(trial.allRooms.get(loc)));
+
+                            GUI.restoreCommandState();
+                            response=null;
+                            res_words=null;
+                        }else{
+                            GUI.changeText("You can only walk to appliances");
+                        }
+                        
+                    }
+                    catch(Exception e){
+                        GUI.changeText("cannot use walk to! see available options in show options()");
+                        GUI.restoreCommandState();
+                        //System.out.println("cannot use walk to! see available options in show options()");
+                    }
+
+                } else if (list_words.contains("go")) {
+
+                    try{
+                        //detective.goTo(detective.location.appliances.get(res_words[num_words - 1]));
+                        GUI.changeText(detective.goTo(detective.location.appliances.get(res_words[num_words - 1])));
+                        GUI.restoreCommandState();
+                    }
+                    catch(Exception e){
+                        GUI.changeText("cannot use go to! see available options in show options()");
+                        GUI.restoreCommandState();
+                        //System.out.println("cannot use go to! see available options in show options()");
+                    }
+                    
+
+                } else if (list_words.contains("examine")) {
+
+                    try{
+                        detective.examine(detective.applianceloc.items.get(res_words[1]));
+                        GUI.changeText(detective.examine(detective.applianceloc.items.get(res_words[1])));
+                        GUI.restoreCommandState();
+                        //detective.examine(detective.applianceloc.items.get(res_words[num_words - 1]));
+                    }
+                    catch (Exception e){
+                        GUI.changeText("cannot examine! use other options in show options()!");
+                        GUI.restoreCommandState();
+                        //System.out.println("cannot examine! use other options in show options()!");
+                    }
+                    
+
+                } else if (list_words.contains("grab")) {
+                    try{
+                    //detective.grab(detective.applianceloc.items.get(res_words[num_words - 1]));
+                    //detective.grab(detective.applianceloc.items.get(response.substring(response.lastIndexOf("grab")+1)));
+                    GUI.changeText(detective.grab(detective.applianceloc.items.get(res_words[num_words - 1])));
+                    GUI.restoreCommandState();
+                }
+                    catch(Exception e){
+                        //System.out.println(e);
+                        GUI.changeText("You have to use 'go to' to get to the appliance before examine/grab item.");
+                        GUI.restoreCommandState();
+                    }
+
+                    
+
+                } else if (list_words.contains("drop")) {
+                    try{
+                    //detective.drop(detective.applianceloc.items.get(res_words[num_words - 1]));
+                    GUI.changeText(detective.drop(detective.applianceloc.items.get(res_words[num_words - 1])));
+                    GUI.restoreCommandState();
+                }
+                    catch(Exception e){
+                        System.out.println(e);
+                        GUI.changeText(e.getMessage());
+                        GUI.restoreCommandState();
+                    }
+                }
+                else if(list_words.contains("check")){
+                    try{
+                        GUI.changeText(detective.checkBag());
+                        GUI.restoreCommandState();
                 }
                 catch(Exception e){
-        
-                    System.out.println("cannot use walk to! see available options in show options()");
+                    GUI.changeText("Backpack is empty, please add first...");
+                    GUI.restoreCommandState();
+                    //System.out.println(e);
                 }
+            }
 
-            } else if (list_words.contains("go")) {
-
-                try{
-                    detective.goTo(detective.location.appliances.get(res_words[num_words - 1]));
+                else if (list_words.contains("declare")) {
+                    try{
+                        GUI.changeText(detective.declare(res_words[num_words - 1]));
+                        GUI.restoreCommandState();
+                    }
+                    catch(Exception e){
+                        // GUI.changeText("");
+                        // GUI.restoreCommandState();
+                        System.out.println(e);
+                    }
+                    
                 }
-                catch(Exception e){
-                    System.out.println("cannot use go to! see available options in show options()");
+                else if (list_words.contains("report"))
+                {
+                    try{
+                        GUI.changeText(detective.showReport());
+                        GUI.restoreCommandState();
+                    }
+                    catch(Exception e){
+                        System.out.println(e);
+                    }
+                    
                 }
                 
-
-            } else if (list_words.contains("examine")) {
-
-                try{
-                    detective.examine(detective.applianceloc.items.get(res_words[1]));
-                    //detective.examine(detective.applianceloc.items.get(res_words[num_words - 1]));
+                else {
+                    GUI.changeText("<html><p>I don't understand your command. Call 'show options' to view excutable actions. </p></html>");
+                    System.out.println("I don't understand your command. Call 'show options' to view excutable actions. ");
+                    GUI.restoreCommandState();
                 }
-                catch (Exception e){
-                    System.out.println("cannot examine! use other options in show options()!");
-                }
-                
-
-            } else if (list_words.contains("grab")) {
-                try{
-                detective.grab(detective.applianceloc.items.get(res_words[num_words - 1]));
-                //detective.grab(detective.applianceloc.items.get(response.substring(response.lastIndexOf("grab")+1)));
-                }
-                catch(Exception e){
-                    System.out.println(e);
-                }
-
-                
-
-            } else if (list_words.contains("drop")) {
-                try{
-                detective.drop(detective.applianceloc.items.get(res_words[num_words - 1]));
-                }
-                catch(Exception e){
-                    System.out.println(e);
-                }
-            }
-            else if(list_words.contains("check")){
-                detective.checkBag();
-            }
-            
-
-             else if (list_words.contains("declare")) {
-
-                detective.declare();
-            }
-            else if (list_words.contains("report"))
-            {
-                detective.showReport();
-            }
-            
-            else {
-                System.out.println("I don't understand your command. Call 'show options' to view excutable actions. ");
+                //response=null;
+                 res_words=null;
             }
         }
-
-        input.close();
+        
 
     }
 }
