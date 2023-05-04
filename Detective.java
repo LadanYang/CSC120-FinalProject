@@ -31,7 +31,7 @@ public class Detective {
      * @param room
     */
 
-    public String walkTo(Room room){
+    public String goTo(Room room){
         
         this.location=room;
         System.out.println("You are in "+room.name+" now");

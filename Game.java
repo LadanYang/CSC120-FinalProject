@@ -29,7 +29,7 @@ public class Game {
         Table1.put("diary",diary);
         Table1.put("ring", ring);
         nurseAppliance.put("table",Table1);
-        Room nurseStation = new Room("Nurse Station",nurseAppliance, "<html><p><hr>Head nurse: bloodType = O; 28 years old; female; 168cm, 48kg; salary= 5000;<br><br /> description: 18:05 received call from dean, asked to meet at 20:00; 18:10 called assistant dean about dean, meet with assistant dean at 19:50 in the hospital.</p></html>");
+        Room nurseStation = new Room("Nurse Station",nurseAppliance, "Head nurse: bloodType = O; 28 years old; female; 168cm, 48kg; salary= 5000; description: 18:05 received call from dean, asked to meet at 20:00; 18:10 called assistant dean about dean, meet with assistant dean at 19:50 in the hospital.");
 
         Hashtable<String, Appliance> investorOfficeAppliance = new Hashtable<String, Appliance>();
         Artifact shareProspectus=new Artifact("share prospectus", "investor 55%, dean 30%, assistant 15%");
@@ -51,7 +51,7 @@ public class Game {
         investorOfficeAppliance.put("drawer", tableDrawer);
         investorOfficeAppliance.put("laptop", laptop);
         investorOfficeAppliance.put("shelf",shelf);
-        Room InvestorOffice = new Room("Investor's Office",investorOfficeAppliance, "<html><p><hr>Investor: bloodType = O; 32 years old; male; 178cm, 75kg;<br><br /> description: 18:00 received call from dean; arrived at hospital at 20:00.</p></html>");
+        Room InvestorOffice = new Room("Investor's Office",investorOfficeAppliance, "Investor: bloodType = O; 32 years old; male; 178cm, 75kg; description: 18:00 received call from dean; arrived at hospital at 20:00.");
 
 
         Hashtable<String, Appliance> wardAppliance = new Hashtable<String, Appliance>();
@@ -75,7 +75,7 @@ public class Game {
         wardAppliance.put("luggage",luggage);
         wardAppliance.put("couch",couch);
         wardAppliance.put("tv",TV);
-        Room patientWard = new Room("Patient's Ward",wardAppliance, "<html><p><hr>Patient: bloodType = O; 28 years old; male; 177cm, 75kg;<br><br /> description: The dean gave him a plastic surgery that failed.</p></html>");
+        Room patientWard = new Room("Patient's Ward",wardAppliance, "Patient: bloodType = O; 28 years old; male; 177cm, 75kg; description: The dean gave him a plastic surgery that failed.");
 
 
         Hashtable<String, Appliance> deanAppliance = new Hashtable<String, Appliance>();
@@ -109,7 +109,7 @@ public class Game {
         deanAppliance.put("plant", potPlant);
         deanAppliance.put("corpse", corpse);
         deanAppliance.put("luggage", Luggage);
-        Room deanOffice = new Room("Dean's Office",deanAppliance, "<html><p><hr>Dean: bloodType = A; 33 years old; male; 179cm, 76kg; salary= 20000.</p></html>");
+        Room deanOffice = new Room("Dean's Office",deanAppliance, "Dean: bloodType = A; 33 years old; male; 179cm, 76kg; salary= 20000.");
 
 
         Hashtable<String, Appliance> cleanerAppliance = new Hashtable<String, Appliance>();
@@ -135,7 +135,7 @@ public class Game {
         drawer1.put("cards", creditCards);
         box.put("mask", facialmask);
         box.put("prosthetics", prosthetics);
-        Room cleanersDorm = new Room("Cleaner's Dorm",cleanerAppliance,"<html><p><hr>Cleaner: bloodType = O; wage = 2000; 26 years old; 170cm, 48kg; female;<br><br /> description: heard head nurse talking to assistant dean at 18:10; saw dean wearing a mask returned at 18:30; 19:30 found that dean's office on fire, dean was dead.</p></html>");
+        Room cleanersDorm = new Room("Cleaner's Dorm",cleanerAppliance,"Cleaner: bloodType = O; wage = 2000; 26 years old; 170cm, 48kg; female; description: heard head nurse talking to assistant dean at 18:10; saw dean wearing a mask returned at 18:30; 19:30 found that dean's office on fire, dean was dead.");
 
 
         Hashtable<String, Appliance> astdeanAppliance = new Hashtable<String, Appliance>();
@@ -157,7 +157,7 @@ public class Game {
         astdeansTable.put("tissues",tissueBox);
         astdeansShelf.put("crane", paperCrane);
         astdeansLaptop.put("email", email1);
-        Room astDeansOffice = new Room("Assistant's Office",astdeanAppliance, "<html><p><hr>Assistant: bloodType = O; 31 years old; male; 177cm, 74kg; salary= 10000;<br><br /> description: he, dean and investor are running the hospital; his brother, the dean, has disappeared a year ago because of a surgery failure that accidentally killed a model; 18:00, dean called him and said he has returned back, asked him to meet at 20:00.</p></html>");
+        Room astDeansOffice = new Room("Assistant's Office",astdeanAppliance, "Assistant: bloodType = O; 31 years old; male; 177cm, 74kg; salary= 10000; description: he, dean and investor are running the hospital; his brother, the dean, has disappeared a year ago because of a surgery failure that accidentally killed a model; 18:00, dean called him and said he has returned back, asked him to meet at 20:00.");
 
 
         
@@ -172,7 +172,7 @@ public class Game {
         cleaningTrolley.put("lighter", lighter);
         cleaningAppliance.put("shelf", cleaningShelf);
         cleaningAppliance.put("trolley",  cleaningTrolley);
-        Room cleaningRoom = new Room("Cleaning Room",cleaningAppliance,"<html><p><hr>Cleaner: bloodType = O; wage = 2000; 26 years old; 170cm, 48kg; female;<br><br /> description: heard head nurse talking to assistant dean at 18:10; saw dean wearing a mask returned at 18:30; 19:30 found that dean's office on fire, dean was dead.</p></html>");
+        Room cleaningRoom = new Room("Cleaning Room",cleaningAppliance,"Cleaner: bloodType = O; wage = 2000; 26 years old; 170cm, 48kg; female; description: heard head nurse talking to assistant dean at 18:10; saw dean wearing a mask returned at 18:30; 19:30 found that dean's office on fire, dean was dead.");
 
 
         this.allRooms=new Hashtable<String,Room>();
@@ -212,7 +212,7 @@ public class Game {
         // System.out.println("Now, what name do you want to use?");
         // String nameD = input.nextLine();
         Detective detective = new Detective("player");
-        detective.walkTo(trial.allRooms.get("patient's ward"));
+        detective.goTo(trial.allRooms.get("patient's ward"));
         // String response = null;
         // String[] res_words = null;
         while (true) {
@@ -246,14 +246,14 @@ public class Game {
                     
                 } else if (response.equals("quit")) {
                     break;
-                } else if (list_words.contains("walk")) {
+                } else if (list_words.contains("go")&& list_words.contains("dorm")|| list_words.contains("office") || list_words.contains("ward")||list_words.contains("station")||list_words.contains("room")) {
                     String loc = res_words[num_words - 2] + " " + res_words[num_words - 1];
                     
                     // System.out.println(loc);
                     try{
                         //detective.walkTo(trial.allRooms.get(loc));
                         if(trial.allRooms.get(loc) instanceof Room){
-                            GUI.changeText(detective.walkTo(trial.allRooms.get(loc)));
+                            GUI.changeText(detective.goTo(trial.allRooms.get(loc)));
 
                             GUI.restoreCommandState();
                             response=null;
