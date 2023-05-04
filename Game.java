@@ -32,23 +32,22 @@ public class Game {
         Room nurseStation = new Room("Nurse Station",nurseAppliance, "Head nurse: bloodType = O; 28 years old; female; 168cm, 48kg; salary= 5000; description: 18:05 received call from dean, asked to meet at 20:00; 18:10 called assistant dean about dean, meet with assistant dean at 19:50 in the hospital.");
 
         Hashtable<String, Appliance> investorOfficeAppliance = new Hashtable<String, Appliance>();
-        Artifact shareProspectus=new Artifact("share prospectus", "investor 55%, dean 30%, assistant dean 15%");
+        Artifact shareProspectus=new Artifact("share prospectus", "investor 55%, dean 30%, assistant 15%");
         Artifact photo=new Artifact("photos", "Photos with ex");
         Artifact newspaperA=new Artifact("newspaper A", "investor inherited 1 billion dollars from parents who died in car ");
         Artifact newspaperB=new Artifact("newspaper B", "one of the ex died because of dean's surgery failure ");
-        
         Appliance tableDrawer = new Appliance("drawer");
-        tableDrawer.put("share prospectus",shareProspectus);
+        tableDrawer.put("prospectus",shareProspectus);
         tableDrawer.put("photo", photo);
         tableDrawer.put("newspaperA", newspaperA);
         tableDrawer.put("newspaperB", newspaperB);
         investorOfficeAppliance.put("drawer",tableDrawer);
-        Artifact email = new Artifact("email with assistant dean","assistant dean wants to replace dean after his brother disappeared, but investor rejects him because investor likes dean more.");
+        Artifact email = new Artifact("email with assistant","assistant wants to replace dean after his brother disappeared, but investor rejects him because investor likes dean more.");
         Appliance laptop = new Appliance("laptop");
         laptop.put("email", email);
-        Artifact liquorBottle = new Artifact("liquor bottles",null);
+        Artifact liquorBottle = new Artifact("liquor bottles","a liquor bottle");
         Appliance shelf = new Appliance("Shelf");
-        shelf.put("liquor bottle", liquorBottle);
+        shelf.put("liquor", liquorBottle);
         investorOfficeAppliance.put("drawer", tableDrawer);
         investorOfficeAppliance.put("laptop", laptop);
         investorOfficeAppliance.put("shelf",shelf);
@@ -57,7 +56,7 @@ public class Game {
 
         Hashtable<String, Appliance> wardAppliance = new Hashtable<String, Appliance>();
         Appliance bed = new Appliance("bed");
-        Artifact Bed = new Artifact("bed", null);
+        Artifact Bed = new Artifact("bed", "nothing");
         bed.put("bed",Bed);
         Appliance drawer = new Appliance("drawer");
         Artifact newspaper=new Artifact("newspaper", "patient and the cleaner are lovers");
@@ -66,10 +65,10 @@ public class Game {
         Artifact phone=new Artifact("phone", "contains a message with his agent: turn down all recent work.");
         luggage.put("phone",phone);
         Appliance couch = new Appliance("couch");
-        Artifact Couch = new Artifact("couch", "null");
+        Artifact Couch = new Artifact("couch", "nothing");
         couch.put("couch",Couch);
         Appliance TV = new Appliance("tv");
-        Artifact tv = new Artifact("tv", "null");
+        Artifact tv = new Artifact("tv", "just a tv");
         TV.put("tv",tv);
         wardAppliance.put("bed",bed);
         wardAppliance.put("drawer",drawer);
@@ -86,11 +85,11 @@ public class Game {
         Appliance potPlant = new Appliance("plant");
         Appliance corpse = new Appliance("corpse");
         Appliance Luggage = new Appliance("luggage");
-        Artifact bottle = new Artifact("burnt bottle", "medical...");
+        Artifact bottle = new Artifact("burnt bottle", "a burnt bottle says: medical...");
         Artifact report = new Artifact("surgery report","patient's surgery report");
-        Artifact liquor = new Artifact("half bottle of liquor","");
-        Artifact profile = new Artifact("staff profile", "");
-        Artifact weddingRing = new Artifact("wedding ring", "null");
+        Artifact liquor = new Artifact("half bottle of liquor","half bottle of liquor");
+        Artifact profile = new Artifact("profile", "profile is displayed at the entry of each room");
+        Artifact weddingRing = new Artifact("ring", "wedding ring");
         Artifact Corpse = new Artifact("dean's corpse", "there are burnt wallet, burnt dean's id card, and burnt medical gauze on the corpse");
         Artifact letter = new Artifact("letter", "a detective agency asks dean to pay the money for investigating all his staff.");
         Artifact pen = new Artifact("recording pen", "I'm back. Let's meet at 20:00 in my office");
@@ -99,7 +98,7 @@ public class Game {
         table.put("report",report);
         table.put("liquor",liquor);
         bookShelf.put("profile",profile);
-        potPlant.put("wedding ring",weddingRing);
+        potPlant.put("ring",weddingRing);
         corpse.put("corpse",Corpse);
         Luggage.put("letter",letter);
         Luggage.put("pen",pen);
@@ -123,18 +122,18 @@ public class Game {
         cleanerAppliance.put("box", box);
         cleanerAppliance.put("drawer", drawer1);
         Artifact poster=new Artifact("posters", "Posters of a film. Protagonist is a patient");
-        Artifact photos=new Artifact("photos", "Photos of the cleaner");
-        Artifact deliveryForms=new Artifact("delivery forms", "Seems to be to steal and sell things from the hospital");
-        Artifact lvBag=new Artifact("louis vuitton Bag", "An expensive handbag");
-        Artifact creditCards=new Artifact("credit Cards", "An assortment of credit cards");
-        Artifact facialmask=new Artifact("facial mask", "A nurses surgical mask");
+        Artifact photos=new Artifact("photos", "Photos of the cleaner. She looks beautiful.");
+        Artifact deliveryForms=new Artifact("delivery", "empty delivery forms. Seems to be to steal and sell things from the hospital");
+        Artifact lvBag=new Artifact("bag", "a lv handbag");
+        Artifact creditCards=new Artifact("cards", "An assortment of credit cards");
+        Artifact facialmask=new Artifact("mask", "A nurses surgical mask");
         Artifact prosthetics=new Artifact("prosthetic", "A prosthetic hand");
         closet.put("poster",poster);
         table1.put("photos",photos);
-        drawer1.put("delivery forms", deliveryForms);
-        drawer1.put("louis vuitton Bag", lvBag);
-        drawer1.put("credit cards", creditCards);
-        box.put("facial mask", facialmask);
+        drawer1.put("delivery", deliveryForms);
+        drawer1.put("bag", lvBag);
+        drawer1.put("cards", creditCards);
+        box.put("mask", facialmask);
         box.put("prosthetics", prosthetics);
         Room cleanersDorm = new Room("Cleaner's Dorm",cleanerAppliance,"Cleaner: bloodType = O; wage = 2000; 26 years old; 170cm, 48kg; female; description: heard head nurse talking to assistant dean at 18:10; saw dean wearing a mask returned at 18:30; 19:30 found that dean's office on fire, dean was dead.");
 
@@ -147,18 +146,18 @@ public class Game {
         astdeanAppliance.put("drawer", astdeansDrawer);
         astdeanAppliance.put("table",  astdeansTable);
         astdeanAppliance.put("shelf",  astdeansShelf);
-        astdeanAppliance.put("laptop",  astdeansShelf);
+        astdeanAppliance.put("laptop",  astdeansLaptop);
         Artifact diary1=new Artifact("diary", "living in the shadow of dean; hate dean; a bottle of medical anesthetic");
         Artifact anasthetic=new Artifact("anasthetic", "medical anasthetic");
         Artifact tissueBox=new Artifact("tissues", "tissue box with key to drawer inside");
-        Artifact paperCrane=new Artifact("crane", "Paper crane. The assistant dean must like the nurse");
-        Artifact email1=new Artifact("email", "email with investor(assistant dean wants to replace dean; unsatisfied about the share allocation; request rejected)");
+        Artifact paperCrane=new Artifact("crane", "Paper crane. The assistant must like the nurse");
+        Artifact email1=new Artifact("email", "email with investor(assistant wants to replace dean; unsatisfied about the share allocation; request rejected)");
         astdeansDrawer.put("diary", diary1);
         astdeansDrawer.put("anasthetic", anasthetic);
         astdeansTable.put("tissues",tissueBox);
         astdeansShelf.put("crane", paperCrane);
         astdeansLaptop.put("email", email1);
-        Room astDeansOffice = new Room("Assistant Dean's Office",astdeanAppliance, "Assistant dean: bloodType = O; 31 years old; male; 177cm, 74kg; salary= 10000; description: he, dean and investor are running the hospital; his brother, the dean, has disappeared a year ago because of a surgery failure that accidentally killed a model; 18:00, dean called him and said he has returned back, asked him to meet at 20:00.");
+        Room astDeansOffice = new Room("Assistant's Office",astdeanAppliance, "Assistant: bloodType = O; 31 years old; male; 177cm, 74kg; salary= 10000; description: he, dean and investor are running the hospital; his brother, the dean, has disappeared a year ago because of a surgery failure that accidentally killed a model; 18:00, dean called him and said he has returned back, asked him to meet at 20:00.");
 
 
         
@@ -182,7 +181,7 @@ public class Game {
         this.allRooms.put("patient's ward",patientWard);
         this.allRooms.put("dean's office",deanOffice);
         this.allRooms.put("cleaner's dorm",cleanersDorm);
-        this.allRooms.put("assistant dean's office",astDeansOffice);
+        this.allRooms.put("assistant's office",astDeansOffice);
         this.allRooms.put("cleaning room",cleaningRoom);
 
         
@@ -339,6 +338,7 @@ public class Game {
             }
 
                 else if (list_words.contains("declare")) {
+                    
                     try{
                         GUI.changeText(detective.declare(res_words[num_words - 1]));
                         GUI.restoreCommandState();

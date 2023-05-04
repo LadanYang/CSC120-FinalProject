@@ -165,7 +165,8 @@ public class Detective {
         }
         else{
             //System.out.println("Not sufficient evidence. Cannot declare. Please examine at least 10 items.");
-            return "Not sufficient evidence. Cannot declare. Please examine at least 15 items.";
+            int leftSteps= 15-steps;
+            return "<html><p>Not sufficient evidence. Cannot declare. Please examine at least 15 items. You still have "+leftSteps+" items to examine.<p><html>";
         }
       }
 
@@ -174,7 +175,8 @@ public class Detective {
             return "<html><p>Here's a autopsy report: age between 25-35, blood type-O, breath in lots of anesthetic</p></html>";
         }
         else{
-            return "No reported received yet. Please examine at least 10 items.";
+            int reportSteps= 10-steps;
+            return "<html><p>No reported received yet. Please examine at least 10 items. You still have "+ reportSteps+" items to examine.<p><html>";
         }
         
       }

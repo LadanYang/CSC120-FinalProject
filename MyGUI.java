@@ -30,7 +30,7 @@ public class MyGUI extends Frame implements ActionListener {
 
         displayText = new JLabel();
         displayText.setBounds(50, 350, 700, 200);
-        displayText.setText("<html><p>Welcome to Who's the Murder! In this game, you are the detective to find out the truth behind a crime.</p></html>");
+        displayText.setText("<html><p>Welcome to Who's the Murder! In this game, you are the detective to find out the truth behind a crime.<br/> On 2016.5.20, the cosmetic surgery hospital was on fire. The dead body of the dean was found by a cleaner in the dean's office whose upper body is charred.</p></html>");
         displayText.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         //displayText.setHorizontalAlignment(SwingConstants.CENTER);
         displayText.setVerticalAlignment(SwingConstants.TOP);
@@ -43,9 +43,9 @@ public class MyGUI extends Frame implements ActionListener {
         optionsButton.setBounds(600, 150, 150, 50);
         optionsButton.addActionListener(this);
 
-        relationshipButton = new JButton("Relationship Diagran");
-        relationshipButton.setBounds(600, 200, 150, 50);
-        relationshipButton.addActionListener(this);
+        // relationshipButton = new JButton("Relationship Diagran");
+        // relationshipButton.setBounds(600, 200, 150, 50);
+        // relationshipButton.addActionListener(this);
 
         applyButton = new JButton("Apply");
         applyButton.setBounds(600, 500, 150, 50);
@@ -64,7 +64,7 @@ public class MyGUI extends Frame implements ActionListener {
         add(displayText);
         add(roomsButton);
         add(applyButton);
-        add(relationshipButton);
+        //add(relationshipButton);
 
         setPreferredSize(new Dimension(800, 600));
         setSize(getPreferredSize());
