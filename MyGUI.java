@@ -26,7 +26,7 @@ public class MyGUI extends Frame implements ActionListener {
         this.currentCommand = "show rooms";
 
         userText = new JTextField();
-        userText.setBounds(50, 500, 450, 50);
+        userText.setBounds(50, 700, 450, 50);
 
         displayText = new JLabel();
         displayText.setBounds(50, 350, 700, 200);
@@ -36,7 +36,7 @@ public class MyGUI extends Frame implements ActionListener {
         displayText.setVerticalAlignment(SwingConstants.TOP);
 
         roomsButton = new JButton("Show Rooms");
-        roomsButton.setBounds(600, 100, 150, 50);
+        roomsButton.setBounds(600, 120, 150, 50);
         roomsButton.addActionListener(this);
 
         optionsButton = new JButton("Show Options");
@@ -48,7 +48,7 @@ public class MyGUI extends Frame implements ActionListener {
         // relationshipButton.addActionListener(this);
 
         applyButton = new JButton("Apply");
-        applyButton.setBounds(600, 500, 150, 50);
+        applyButton.setBounds(600, 700, 150, 50);
         applyButton.addActionListener(this);
 
         ImageIcon startImage = new ImageIcon("murder_games.jpeg");
@@ -66,7 +66,7 @@ public class MyGUI extends Frame implements ActionListener {
         add(applyButton);
         //add(relationshipButton);
 
-        setPreferredSize(new Dimension(800, 600));
+        setPreferredSize(new Dimension(800, 800));
         setSize(getPreferredSize());
         
         setLayout(null);
