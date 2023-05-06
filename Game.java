@@ -29,7 +29,7 @@ public class Game {
         Table1.put("diary",diary);
         Table1.put("ring", ring);
         nurseAppliance.put("table",Table1);
-        Room nurseStation = new Room("Nurse Station",nurseAppliance, "<html><p><hr>Head nurse: bloodType = O; 28 years old; female; 168cm, 48kg; salary= 5000;<br><br />  Description: 18:05 received call from dean, asked to meet at 20:00; 18:10 called assistant dean about dean, meet with assistant dean at 19:50 in the hospital.</p></html>");
+        Room nurseStation = new Room("Nurse Station",nurseAppliance, "<html><p><hr>Head nurse: bloodType = O; 28 years old; female; 168cm, 48kg; salary= 5000;<br><br />  description: 18:05 received call from dean, asked to meet at 20:00; 18:10 called assistant dean about dean, meet with assistant dean at 19:50 in the hospital.</p></html>");
 
         Hashtable<String, Appliance> investorOfficeAppliance = new Hashtable<String, Appliance>();
         Artifact shareProspectus=new Artifact("share prospectus", "investor 55%, dean 30%, assistant 15%");
@@ -51,7 +51,7 @@ public class Game {
         investorOfficeAppliance.put("drawer", tableDrawer);
         investorOfficeAppliance.put("laptop", laptop);
         investorOfficeAppliance.put("shelf",shelf);
-        Room InvestorOffice = new Room("Investor's Office",investorOfficeAppliance, "<html><p><hr>Investor: bloodType = O; 32 years old; male; 178cm, 75kg;<br><br />  Description: 18:00 received call from dean; arrived at hospital at 20:00.</p></html>");
+        Room InvestorOffice = new Room("Investor's Office",investorOfficeAppliance, "<html><p><hr>Investor: bloodType = O; 32 years old; male; 178cm, 75kg;<br><br />  description: 18:00 received call from dean; arrived at hospital at 20:00.</p></html>");
 
 
         Hashtable<String, Appliance> wardAppliance = new Hashtable<String, Appliance>();
@@ -75,7 +75,7 @@ public class Game {
         wardAppliance.put("luggage",luggage);
         wardAppliance.put("couch",couch);
         wardAppliance.put("tv",TV);
-        Room patientWard = new Room("Patient's Ward",wardAppliance, "<html><p><hr>Patient: bloodType = O; 28 years old; male; 177cm, 75kg;<br><br />  Description: The dean gave him a plastic surgery that failed.</p></html>");
+        Room patientWard = new Room("Patient's Ward",wardAppliance, "<html><p><hr>Patient: bloodType = O; 28 years old; male; 177cm, 75kg;<br><br />  description: The dean gave him a plastic surgery that failed.</p></html>");
 
 
         Hashtable<String, Appliance> deanAppliance = new Hashtable<String, Appliance>();
@@ -135,7 +135,7 @@ public class Game {
         drawer1.put("cards", creditCards);
         box.put("mask", facialmask);
         box.put("prosthetics", prosthetics);
-        Room cleanersDorm = new Room("Cleaner's Dorm",cleanerAppliance,"<html><p><hr>Cleaner: bloodType = O; wage = 2000; 26 years old; 170cm, 48kg; female;<br><br />  Description: heard head nurse talking to assistant dean at 18:10; saw dean wearing a mask returned at 18:30; 19:30 found that dean's office on fire, dean was dead.</p></html>");
+        Room cleanersDorm = new Room("Cleaner's Dorm",cleanerAppliance,"<html><p><hr>Cleaner: bloodType = O; wage = 2000; 26 years old; 170cm, 48kg; female;<br><br />  description: heard head nurse talking to assistant dean at 18:10; saw dean wearing a mask returned at 18:30; 19:30 found that dean's office on fire, dean was dead.</p></html>");
 
 
         Hashtable<String, Appliance> astdeanAppliance = new Hashtable<String, Appliance>();
@@ -157,7 +157,7 @@ public class Game {
         astdeansTable.put("tissues",tissueBox);
         astdeansShelf.put("crane", paperCrane);
         astdeansLaptop.put("email", email1);
-        Room astDeansOffice = new Room("Assistant's Office",astdeanAppliance, "<html><p><hr>Assistant: bloodType = O; 31 years old; male; 177cm, 74kg; salary= 10000;<br><br />  Description: he, dean and investor are running the hospital; his brother, the dean, has disappeared a year ago because of a surgery failure that accidentally killed a model; 18:00, dean called him and said he has returned back, asked him to meet at 20:00.</p></html>");
+        Room astDeansOffice = new Room("Assistant's Office",astdeanAppliance, "<html><p><hr>Assistant: bloodType = O; 31 years old; male; 177cm, 74kg; salary= 10000;<br><br />  description: he, dean and investor are running the hospital; his brother, the dean, has disappeared a year ago because of a surgery failure that accidentally killed a model; 18:00, dean called him and said he has returned back, asked him to meet at 20:00.</p></html>");
 
 
         
@@ -172,7 +172,7 @@ public class Game {
         cleaningTrolley.put("lighter", lighter);
         cleaningAppliance.put("shelf", cleaningShelf);
         cleaningAppliance.put("trolley",  cleaningTrolley);
-        Room cleaningRoom = new Room("Cleaning Room",cleaningAppliance,"<html><p><hr>Cleaner: bloodType = O; wage = 2000; 26 years old; 170cm, 48kg; female;<br><br />  Description: heard head nurse talking to assistant dean at 18:10; saw dean wearing a mask returned at 18:30; 19:30 found that dean's office on fire, dean was dead.</p></html>");
+        Room cleaningRoom = new Room("Cleaning Room",cleaningAppliance,"<html><p><hr>Cleaner: bloodType = O; wage = 2000; 26 years old; 170cm, 48kg; female;<br><br />  description: heard head nurse talking to assistant dean at 18:10; saw dean wearing a mask returned at 18:30; 19:30 found that dean's office on fire, dean was dead.</p></html>");
 
 
         this.allRooms=new Hashtable<String,Room>();
@@ -219,10 +219,7 @@ public class Game {
             //System.out.println(detective.location.name);
             // System.out.println("");
             // System.out.println(detective.name + ", what do you want to do next? Call 'show options' to see the availble actions");
-            if(GUI.getCommand()==null){
-                GUI.changeText("Please input valid request and click 'Apply'. ");
-            }else{
-                String response = GUI.getCommand().toLowerCase();
+            String response = GUI.getCommand().toLowerCase();
             String[] res_words = response.split(" ");
             List list_words = Arrays.asList(res_words);
             int num_words = list_words.size();
@@ -242,7 +239,7 @@ public class Game {
                         GUI.changeText(detective.lookAround());
                         GUI.restoreCommandState();
                     }catch(Exception e){
-                        GUI.changeText("<html><p>Cannot look around! Make sure you're in a room first.</p></html>");
+                        GUI.changeText("cannot look around! Make sure you're in a room first.");
                         GUI.restoreCommandState();
                     }
 
@@ -267,7 +264,7 @@ public class Game {
                         
                     }
                     catch(Exception e){
-                        GUI.changeText("<html><p>Cannot use go to! see available options in show options()</p></html>");
+                        GUI.changeText("cannot use walk to! see available options in show options()");
                         GUI.restoreCommandState();
                         //System.out.println("cannot use walk to! see available options in show options()");
                     }
@@ -280,7 +277,7 @@ public class Game {
                         GUI.restoreCommandState();
                     }
                     catch(Exception e){
-                        GUI.changeText("<html><p>Cannot use go to! see available options in show options()</p></html>");
+                        GUI.changeText("cannot use go to! see available options in show options()");
                         GUI.restoreCommandState();
                         //System.out.println("cannot use go to! see available options in show options()");
                     }
@@ -295,7 +292,7 @@ public class Game {
                         //detective.examine(detective.applianceloc.items.get(res_words[num_words - 1]));
                     }
                     catch (Exception e){
-                        GUI.changeText("<html><p>Cannot examine! You have to use 'go to' to get to the appliance before examine/grab item. Check out other options in show options()!</p></html>");
+                        GUI.changeText("cannot examine! use other options in show options()!");
                         GUI.restoreCommandState();
                         //System.out.println("cannot examine! use other options in show options()!");
                     }
@@ -310,7 +307,7 @@ public class Game {
                 }
                     catch(Exception e){
                         //System.out.println(e);
-                        GUI.changeText("<html><p>You have to use 'go to' to get to the appliance before examine/grab item.</p></html>");
+                        GUI.changeText("You have to use 'go to' to get to the appliance before examine/grab item.");
                         GUI.restoreCommandState();
                     }
 
@@ -373,9 +370,6 @@ public class Game {
                 //response=null;
                  res_words=null;
             }
-
-            }
-            
         }
         
 

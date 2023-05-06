@@ -6,7 +6,7 @@
 
 
 import java.util.ArrayList;
-import java.util.Scanner;
+// import java.util.Scanner;
 
 public class Detective {
     String name;
@@ -155,10 +155,10 @@ public class Detective {
         // String declare = input.nextLine();
         if (declare.equalsIgnoreCase("dean")){
             //System.out.println("Congrats! You've caught the murder.");
-            return "Congrats! You've caught the murder.";
+            return "<html><p>Congrats! You've caught the murder.</p></html>";
         }
         else{
-            //System.out.println("Wrong! Think twice.");
+            //System.out.prin<html><p>tln("Wrong! Think twice.");
             return "Wrong! Think twice.";
         }
         
