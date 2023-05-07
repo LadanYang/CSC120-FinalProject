@@ -1,13 +1,13 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import java.util.List;
-import java.util.Scanner;
-import java.util.*;
+//import java.util.List;
+//import java.util.Scanner;
+//import java.util.*;
 import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.Image;
+//import javax.swing.JFrame;
+//import javax.swing.JPanel;
+//import java.awt.Image;
 
 public class MyGUI extends Frame implements ActionListener {
 
@@ -24,6 +24,10 @@ public class MyGUI extends Frame implements ActionListener {
     String currentCommand;
     public boolean commandState;
 
+    /**
+     * build show rooms, show options, relationship diagram, room map and apply botton
+     * set text and image boundary
+     */
     public MyGUI() {
 
         this.commandState = false;
@@ -94,6 +98,11 @@ public class MyGUI extends Frame implements ActionListener {
        
     }
 
+    /**
+     * type in information under show options and show rooms button, insert image under relationship diagram and map button
+     * press apply button will execute usertext, and clear out the text box
+     * @param evt
+     */
     public void actionPerformed(ActionEvent evt) {
         if(evt.getSource()==optionsButton){
             this.commandState = false;
@@ -132,18 +141,31 @@ public class MyGUI extends Frame implements ActionListener {
       
     }
 
+    /**
+     * change to new text
+     * @param newText
+     */
     public void changeText(String newText){
         displayText.setText(newText);
     }
 
+    /**
+     * @return command content
+     */
     public String getCommand(){
         this.currentCommand = userText.getText();
         
         return this.currentCommand;
     }
+
+    /**
+     * @return command state
+     */
     public boolean getCommandState(){
         return this.commandState;
     }
+
+    /**set command state to false, shut down command status */
     public void restoreCommandState(){
         this.commandState = false;
     }
