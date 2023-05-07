@@ -1,13 +1,8 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-//import java.util.List;
-//import java.util.Scanner;
-//import java.util.*;
 import javax.swing.JButton;
-//import javax.swing.JFrame;
-//import javax.swing.JPanel;
-//import java.awt.Image;
+
 
 public class MyGUI extends Frame implements ActionListener {
 
@@ -63,16 +58,13 @@ public class MyGUI extends Frame implements ActionListener {
         applyButton.setBounds(600, 800, 150, 50);
         applyButton.addActionListener(this);
 
-        //ImageIcon startImage = new ImageIcon("bad-hospital.jpeg");
-        //ImageIcon startImage = new ImageIcon("murder_games.jpeg");
+
         ImageIcon startImage = new ImageIcon("murder.jpeg");
 
         ImageIcon roomImage = new ImageIcon("room_map.png");
         ImageIcon relaImage = new ImageIcon("relationship.png");
-        //Image newimg = startImage.getScaledInstance(120, 120,  java.awt.Image.SCALE_SMOOTH); 
-        //ImageIcon relaImage = new ImageIcon("relationship.png");
+
         this.startLabel = new JLabel(startImage); 
-        //JLabel startLabel = new JLabel(startImage); 
         this.startLabel.setBounds(350, 50, 1200, 700);
         this.roomLabel = new JLabel(roomImage); 
         this.roomLabel.setBounds(350, 50, 1200, 700);
