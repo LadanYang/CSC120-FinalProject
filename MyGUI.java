@@ -4,6 +4,9 @@ import java.awt.event.*;
 import javax.swing.JButton;
 
 
+/**
+ * GUI class
+ */
 public class MyGUI extends Frame implements ActionListener {
 
     JTextField userText;
@@ -20,8 +23,7 @@ public class MyGUI extends Frame implements ActionListener {
     public boolean commandState;
 
     /**
-     * build show rooms, show options, relationship diagram, room map and apply botton
-     * set text and image boundary
+     * Constructor of GUI class 
      */
     public MyGUI() {
 
@@ -91,9 +93,8 @@ public class MyGUI extends Frame implements ActionListener {
     }
 
     /**
-     * type in information under show options and show rooms button, insert image under relationship diagram and map button
-     * press apply button will execute usertext, and clear out the text box
-     * @param evt
+     * Litsen to the button click actions and respond
+     * @param evt the actions players take
      */
     public void actionPerformed(ActionEvent evt) {
         if(evt.getSource()==optionsButton){
@@ -134,7 +135,7 @@ public class MyGUI extends Frame implements ActionListener {
     }
 
     /**
-     * change to new text
+     * change display text Jlabel to new text
      * @param newText
      */
     public void changeText(String newText){
@@ -142,7 +143,8 @@ public class MyGUI extends Frame implements ActionListener {
     }
 
     /**
-     * @return command content
+     * Getter of user's command
+     * @return String command content
      */
     public String getCommand(){
         this.currentCommand = userText.getText();
@@ -151,13 +153,16 @@ public class MyGUI extends Frame implements ActionListener {
     }
 
     /**
-     * @return command state
+     * Getter of command state
+     * @return whether users has placed a command/click apply
      */
     public boolean getCommandState(){
         return this.commandState;
     }
 
-    /**set command state to false, shut down command status */
+    /**
+     * Setter of command state, change command state to false
+     */
     public void restoreCommandState(){
         this.commandState = false;
     }

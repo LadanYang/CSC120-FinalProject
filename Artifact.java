@@ -4,10 +4,17 @@
  * @version 04/28/23
  **/
 
-
+/**
+ * Artifact class
+ */
 public class Artifact{
     public String name;
     private String description;
+    /**
+     * Constructor of artifact class
+     * @param String name of the artifact
+     * @param String description of the artifact
+     */
     public Artifact(String name, String description){
 
         /** The name for this item */
@@ -18,11 +25,11 @@ public class Artifact{
 
     }
 
-    /** Getter for description of the item 
-     * Prints out description
+    /** 
+     * Getter for description of the item 
+     * @return the description of the item
     */
     public String getDescription(){
-       //System.out.println (this.description);
        return this.description;
        
     }

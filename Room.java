@@ -6,11 +6,20 @@
 import java.util.Hashtable;
 import java.util.Set;
 
+/**
+ * Class room
+ */
 public class Room {
     Hashtable<String, Appliance> appliances;
     public String name;
     String profile;
 
+    /**
+     * Room class constructor
+     * @param String name of the room
+     * @param hashtable of appliance name and appliance
+     * @param String the profile of the room's owner
+     */
     public Room(String name, Hashtable<String, Appliance> appliances, String profile){
         /** Name of the room*/
         this.name=name;
@@ -20,20 +29,21 @@ public class Room {
         this.profile= profile;
     }
 
-    // public Room(String name){
-    //     this.name=name;
-    // }
 
-    /** Prints out the associated investigative profile */
+    /**
+     * Accessor of room owner's profile
+     * @return the room owner's profile
+     */
     public String printProfile(){
-        //System.out.println(this.profile);
         return this.profile;
     }
 
-    
-    /** Prints out the appliances within that room */
+
+    /**
+     * Accessor of the appliance list
+     * @return string set of the appliance
+     */
     public Set<String> printAppliance(){
-        //System.out.println(appliances.keySet());
         return appliances.keySet();
 
     }

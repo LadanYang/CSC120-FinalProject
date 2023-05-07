@@ -6,8 +6,10 @@
 
 
 import java.util.ArrayList;
-// import java.util.Scanner;
 
+/**
+ * Detective class
+ */
 public class Detective {
     String name;
     Room location;
@@ -15,7 +17,10 @@ public class Detective {
     Appliance applianceloc;
     int steps = 0;
 
-    
+    /**
+     * Constructor of detective class
+     * @param String name of the detective
+     */
     public Detective(String name){
         /** Name of the detective*/
         this.name=name;
@@ -28,9 +33,9 @@ public class Detective {
 
 
     /** Manipulator to walk to room and update location
-     * @param room
+     * @param room the room trying to access
+     * @return String the profile of the room's owner
     */
-
     public String goTo(Room room){
         
         this.location=room;
@@ -41,103 +46,91 @@ public class Detective {
     }
 
     
-    /** Prints out the list of the appliances in a given room*/
 
+    /**
+     * Prints out the list of the appliances in a given room
+     * @return String the list of the appliance 
+     */
     public String lookAround(){
-        // System.out.print("There are ");
-        // this.location.printAppliance();
         return "<html><p>There are "+this.location.printAppliance()+"</p></html>";
     }
 
     /** Adds the item to the bakpack 
-     * @param Artifact
-     * @exception if its already within the backpack
+     * @param Artifact the item trying to grab
+     * @return a message saying if the item is successfully grabbed
     */
     public String grab(Artifact item){
         
         if (this.backpack.contains(item)){
-            //throw new RuntimeException("it's already in your bag!");
             return "it's already in your bag!";
         }
         this.backpack.add(item);
-        //System.out.println("You just grabed "+item.name);
         return "You just grabed "+item.name;
-        //return this.backpack.toString();
+
     }
 
     
     /** Removes the item to the bakpack 
-     * @param Artifact
-     * @exception if its already not within the backpack
+     * @param Artifact the item trying to drop
+     * @return String a message saying if the item is successfully dropped
     */
     public String drop(Artifact item){
         if(this.backpack.contains(item)){
             this.backpack.remove(item);
-        //System.out.println("You just dropped "+item.name);
-        return "You just dropped "+item.name;
+            return "You just dropped "+item.name;
         }else{
             return item.name+" is not in your backpack!";
-            //throw new RuntimeException(item.name+" is not in your backpack!");
         }
     }
 
     
     /** Examines the artifact by printing its description
-     * @param Artifact
+     * @param Artifact the item trying to examine
+     * @return String the description of the item
     */
     public String examine(Artifact item){
-        // System.out.println("Examining "+item.name+"...");
-        // item.getDescription();
         steps++;
         return "<html><p>Examining "+item.name+"..." + item.getDescription()+"</p></html>";
     }
 
     
     /** Setter to change the appliance within use, updates applianceloc
-     * @param Appliance
+     * @param Appliance the appliance trying to go to
+     * @return String the list of items in the appliance
     */
-
     public String goTo(Appliance appliance){
         System.out.print("You are at "+appliance.name+". There are");
         this.applianceloc = appliance;
         if (applianceloc==null){
-            //System.out.println("please use walk to(item) method.");
             return "please use walk to(item) method.";
         }
-        
-        //appliance.printItem();
         return "<html><p>You are at "+appliance.name+". There are "+appliance.printItem()+"</p></html>";
 
     }
         
     
-    /** Getter prints out contents of backpack
+    /** 
+     * Getter prints out contents of backpack
+     * @return Sring the contents of backpack
     */
     public String checkBag(){
         StringBuffer sb = new StringBuffer();
         for (int i=0; i<backpack.size();i++){
             System.out.println(backpack.get(i).name);
-            String s = backpack.get(i).name;
-            sb.append(s);
+            String item = backpack.get(i).name;
+            sb.append(item);
             sb.append(" ");
-            //String names = backpack.get(i).name;
         }
-       String str = sb.toString();
-      return str;
+       String itemList = sb.toString();
+      return itemList;
     }
 
-    
-    // public void getItem(){
-    //     for (int i=0; i<backpack.size();i++){
-    //         System.out.println(backpack.get(i).name);
-    //     }
-    // }
-
 
     
-    /** Prints all the methods
+    /** 
+     * Prints all the methods
+     * @return String all the available options
     */
-    
     public String showOptions() {
         String Options = "<html><p>Available options: go to(appliance), walk to(room), look around, examine(item), grab(item), drop(item), check bag(), declare(suspect), showReport()</p></html>";
         return Options;
@@ -145,41 +138,41 @@ public class Detective {
 
       
     
-    /** The method for declaring the murderer, will print wrong if it is not the correct murderer
+    /** 
+     * The method for declaring the murderer
+     * @return String a message indicating whether the declare is successful
     */
+    public String declare(String declare){
+    if(steps>=15){
+        System.out.println("Please declare the murderer:");
+    if (declare.equalsIgnoreCase("dean")){
+        return "<html><p>Congrats! You've caught the murder.</p></html>";
+    }
+    else{
+        return "Wrong! Think twice.";
+    }
     
-      public String declare(String declare){
-        if(steps>=15){
-            System.out.println("Please declare the murderer:");
-        // Scanner input = new Scanner(System.in);
-        // String declare = input.nextLine();
-        if (declare.equalsIgnoreCase("dean")){
-            //System.out.println("Congrats! You've caught the murder.");
-            return "<html><p>Congrats! You've caught the murder.</p></html>";
-        }
-        else{
-            //System.out.prin<html><p>tln("Wrong! Think twice.");
-            return "Wrong! Think twice.";
-        }
-        
-        }
-        else{
-            //System.out.println("Not sufficient evidence. Cannot declare. Please examine at least 10 items.");
-            int leftSteps= 15-steps;
-            return "<html><p>Not sufficient evidence. Cannot declare. Please examine at least 15 items. You still have "+leftSteps+" items to examine.<p><html>";
-        }
-      }
+    }
+    else{
+        int leftSteps= 15-steps;
+        return "<html><p>Not sufficient evidence. Cannot declare. Please examine at least 15 items. You still have "+leftSteps+" items to examine.<p><html>";
+    }
+    }
 
-      public String showReport(){
-        if(steps>=10){
-            return "<html><p>Here's a autopsy report: age between 25-35, blood type-O, breath in lots of anesthetic</p></html>";
-        }
-        else{
-            int reportSteps= 10-steps;
-            return "<html><p>No reported received yet. Please examine at least 10 items. You still have "+ reportSteps+" items to examine.<p><html>";
-        }
-        
-      }
+    /**
+     * The method for showing a report in the middle of the game
+     * @return String the report
+     */
+    public String showReport(){
+    if(steps>=10){
+        return "<html><p>Here's a autopsy report: age between 25-35, blood type-O, breath in lots of anesthetic</p></html>";
+    }
+    else{
+        int reportSteps= 10-steps;
+        return "<html><p>No reported received yet. Please examine at least 10 items. You still have "+ reportSteps+" items to examine.<p><html>";
+    }
     
+    }
+
     
 }
