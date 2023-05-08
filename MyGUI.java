@@ -31,7 +31,7 @@ public class MyGUI extends Frame implements ActionListener {
         this.currentCommand = "show rooms";
 
         userText = new JTextField();
-        userText.setBounds(50, 800, 450, 50);
+        userText.setBounds(50, 700, 450, 50);
 
         displayText = new JLabel();
         displayText.setBounds(50, 250, 300, 450);
